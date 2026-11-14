@@ -23,13 +23,13 @@ and in-person appointments. Billing and insurance, patient portal login and
 authentication, lab tests, referrals, and multi-branch scheduling are
 outside this example.
 
-## Key operations the database will support
-1. Register a patient.
-2. Book an appointment without double-booking a doctor's time slot.
-3. Cancel or complete an appointment.
-4. Record a diagnosis and prescription.
-5. Retrieve a patient's full history.
-6. Report appointments per doctor and per day.
+## Key operations
+- Register a patient.
+- Book an appointment without double-booking a doctor's time slot.
+- Cancel or complete an appointment.
+- Record a diagnosis and prescription.
+- Retrieve a patient's full history.
+- Report appointments per doctor and per day.
 
 ## Business rules
 - Each patient has a unique patient ID and a unique email address.
