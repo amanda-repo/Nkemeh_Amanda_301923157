@@ -6,7 +6,7 @@ Student ID: 301923157
 
 ## Case study
 
-Greenfield Family Clinic: a simulated Clinic Appointment System.
+Greenfield Family Clinic: a simulated Clinic Appointment System (see portfolio 1 for the full description)
 
 ## Portfolio folders
 
