@@ -41,21 +41,29 @@ I use an automatically generated ID for each record. In the table below, **uniqu
 
 For example, Dr Adams' 10:00 slot on Monday can be booked, cancelled, and then booked again by another patient. I keep both appointment records, but only one can be active at a time. A foreign key links the records on its own; it does not stop a slot being booked twice.
 
+To enforce this, I use partial unique indexes. Each one applies only to active appointments, so cancelled records stay in the table and their slots can be rebooked.
+
+```sql
+-- Rule 4: a doctor cannot have two active appointments in the same slot
+CREATE UNIQUE INDEX uq_doctor_slot
+ON appointment (doctor_id, appointment_date, slot_time)
+WHERE status <> 'Cancelled';
+
+-- Rule 5: a patient cannot have two active appointments in the same slot
+CREATE UNIQUE INDEX uq_patient_slot
+ON appointment (patient_id, appointment_date, slot_time)
+WHERE status <> 'Cancelled';
+```
+
 ## Business rules and constraints
 
 - **Rules 1 and 2:** Patient IDs, doctor IDs and patient emails are unique, and each doctor has one specialty.
 - **Rule 3:** Required foreign keys link each appointment to an existing patient and an existing doctor.
-- **Rule 4:** A doctor has at most one active appointment per slot. The design uses a partial unique index on (doctor_id, appointment_date, slot_time) only where status is not Cancelled.
-- **Rule 5:** A patient cannot hold two active appointments in the same slot. This uses the same partial index idea on (patient_id, appointment_date, slot_time).
+- **Rule 4:** A doctor has at most one active appointment per slot. Enforced by `uq_doctor_slot` (see Relationships).
+- **Rule 5:** A patient cannot hold two active appointments in the same slot. Enforced by `uq_patient_slot` (see Relationships).
 - **Rule 6:** A CHECK constraint allows only Booked, Completed or Cancelled as status.
 - **Rule 7:** Cancelling changes the status and keeps the record, so the history stays and the slot is free to rebook.
 - **Rule 8:** A diagnosis or prescription must belong to an existing appointment, and that appointment must be Completed. A foreign key covers the first part; the second needs a trigger or transaction logic, not just a key.
 - **Rule 9:** A CHECK constraint requires duration_days to be greater than zero.
-
-```sql
-CREATE UNIQUE INDEX uq_doctor_slot
-ON appointment (doctor_id, appointment_date, slot_time)
-WHERE status <> 'Cancelled';
-```
 
 A slot is available when it has no active appointment. This can be calculated, so the design has no separate availability field.
