@@ -8,7 +8,7 @@ Dates are in year-month-day order. Names and emails are fictional. In the exampl
 
 | patient_id | patient_name | patient_email | Appointments |
 | --- | --- | --- | --- |
-| 1 | Amina Bello | amina@example.com | Dr Daniel Adams (doctor 1, Cardiology), 2026-12-01 10:00, Completed; diagnoses: Flu, Dehydration; prescriptions: Paracetamol 500 mg for 5 days, Rehydration salts 1 sachet for 3 days. Dr Grace Mensah (doctor 2, Dermatology), 2026-12-02 09:00, Completed; diagnoses: Eczema; prescriptions: Hydrocortisone cream, thin layer, for 7 days. |
+| 1 | Amina Bello | amina@example.com | Dr Daniel Adams (doctor 1, Cardiology), 2026-12-01 10:00, Completed; diagnoses: Flu, Dehydration; prescriptions: Paracetamol 500 mg for 5 days, Rehydration salts 1 sachet for 3 days. Dr Grace Adeola (doctor 2, Dermatology), 2026-12-02 09:00, Completed; diagnoses: Eczema; prescriptions: Hydrocortisone cream, thin layer, for 7 days. |
 | 2 | Chidi Okafor | chidi@example.com | Dr Daniel Adams (doctor 1, Cardiology), 2026-12-01 11:00, Completed; diagnoses: Hypertension; prescriptions: Amlodipine 5 mg for 30 days. |
 
 The first row holds two appointments, and each appointment holds its own lists of diagnoses and prescriptions, all in one cell. Finding one diagnosis or changing one prescription is awkward.
