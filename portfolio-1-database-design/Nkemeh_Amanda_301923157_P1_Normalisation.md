@@ -66,7 +66,7 @@ Key: **doctor_id**.
 | doctor_id | doctor_name | specialty |
 | --- | --- | --- |
 | 1 | Daniel Adams | Cardiology |
-| 2 | Grace Mensah | Dermatology |
+| 2 | Grace Adeola | Dermatology |
 
 ### Appointment details
 
@@ -129,7 +129,7 @@ Key: **doctor_id**.
 | doctor_id | first_name | last_name | specialty |
 | --- | --- | --- | --- |
 | 1 | Daniel | Adams | Cardiology |
-| 2 | Grace | Mensah | Dermatology |
+| 2 | Grace | Adeola | Dermatology |
 
 ### appointment
 Key: **appointment_id**. patient_id and doctor_id are foreign keys.
